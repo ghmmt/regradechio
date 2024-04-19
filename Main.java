@@ -19,7 +19,7 @@ public class Main {
 	    
 	    for (int i = 0; i < N; i++) {
 	        for (int j = 0; j < N; j++) {
-	            matriz[i][j] = new BigFraction(new BigInteger(gerador.nextInt(11)+""), new BigInteger((gerador.nextInt(10)+1)+"");
+	            matriz[i][j] = new BigFraction(new BigInteger(gerador.nextInt(11)+""), new BigInteger((gerador.nextInt(10)+1)+""));
 	        }
 	    }
 	    
