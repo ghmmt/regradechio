@@ -37,7 +37,7 @@ public class Main {
 	}
 	
 	public static BigFraction chio(BigFraction matriz[][], BigFraction modificacoesProduto) {
-	    if (determinanteEqualsZero(matriz)) return new BigFraction("1/0");
+	    if (determinanteEqualsZero(matriz)) return new BigFraction("0/1");
 	    else if (matriz.length == 3) {
 	        BigFraction determinante = sarrus(matriz);
 	        //System.out.printf("%s/%s\n", determinante.a, determinante.b);
