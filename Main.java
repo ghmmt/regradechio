@@ -61,7 +61,7 @@ public class Main {
 	    
 	    if (!matriz[0][0].a.equals(BigInteger.ONE)) {
     	    modificacoesProduto.multiplicarFracao(matriz[0][0]);
-    	    BigFraction div = new BigFraction(String.format("%s/%s", matriz[0][0].b, matriz[0][0].a));
+    	    BigFraction div = new BigFraction(matriz[0][0].b, matriz[0][0].a);
             for (int i = matriz[0].length - 1; i >= 0; i--) {
                 matriz[0][i].multiplicarFracao(div);
             }
