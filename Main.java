@@ -37,13 +37,11 @@ public class Main {
 	}
 	
 	public static BigFraction chio(BigFraction matriz[][], BigFraction modificacoesProduto) {
-	    if (determinanteEqualsZero(matriz)) return new BigFraction("0/1");
-	    else if (matriz.length == 3) {
-	        BigFraction determinante = sarrus(matriz);
-	        //System.out.printf("%s/%s\n", determinante.a, determinante.b);
-	        //System.out.printf("%s/%s\n", modificacoesProduto.a, modificacoesProduto.b);
-	        determinante.multiplicarFracao(modificacoesProduto);
-	        return determinante;
+	    if (matriz == null) return new BigFraction("0/0");
+	    else if (determinanteEqualsZero(matriz)) return new BigFraction("0/1");
+	    else if (matriz.length == 1) {
+	        matriz[0][0].multiplicarFracao(modificacoesProduto);
+	        return matriz[0][0];
 	    }
 	    
         if (matriz[0][0].a.equals(BigInteger.ZERO)) {
@@ -66,8 +64,6 @@ public class Main {
                 matriz[0][i].multiplicarFracao(div);
             }
 	    }
-	    //System.out.println();
-	    //imprimirMatriz(matriz);
 	    
 	    BigFraction matrizReduzida[][] = new BigFraction[matriz.length - 1][matriz[0].length - 1];
 	    for (int i = 1; i < matriz.length; i++) {
@@ -78,13 +74,11 @@ public class Main {
 	            matrizReduzida[i-1][j-1].subtrairFracao(aux);
 	        }
 	    }
-	    //System.out.println();
-	    //imprimirMatriz(matrizReduzida);
 	    
 	    return chio(matrizReduzida, modificacoesProduto);
 	}
 	
-	public static BigFraction sarrus(BigFraction matriz[][]) {
+	/*public static BigFraction sarrus(BigFraction matriz[][]) {
 	    BigFraction determinante = new BigFraction("0/1");
 	    
 	    for (int i = 0; i < 3; i++) {
@@ -102,7 +96,7 @@ public class Main {
 	    }
 	    
 	    return determinante;
-	}
+	}*/
 	
 	public static boolean determinanteEqualsZero(BigFraction matriz[][]) {
 	    int sum = 0;
